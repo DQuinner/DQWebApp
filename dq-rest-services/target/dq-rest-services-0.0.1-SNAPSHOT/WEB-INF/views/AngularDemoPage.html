@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html data-ng-app="dq-angular-root">
+	<script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-route.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-resource.js"></script>
+    <script type="text/javascript" src="scripts/dq-angular-root.js"></script>
+	<link rel="stylesheet" href="styles/dq-style.css"/>
+	<body>
+		<h1>DQ AngualarJS Page</h1>
+		<div id="container">
+			<div id="top_left_panel" data-ng-controller="two_way_binding">
+				<div class="div-block">
+					Favorite word: <input type="text" data-ng-model="favoriteWord"/>
+				</div>
+				<div class="div-block">
+					{{favoriteWord}}
+				</div>
+				<div class="div-block">
+					Favorite color:
+					<input type="radio" name="fc" value="Red" data-ng-model="favoriteColor">Red </input>
+					<input type="radio" name="fc" value="Green" data-ng-model="favoriteColor">Green</input>
+					<input type="radio" name="fc" value="Yellow" data-ng-model="favoriteColor">Yellow</input>
+					<input type="radio" name="fc" value="Blue" data-ng-model="favoriteColor">Blue</input>
+				</div>	
+				<div class="div-block">
+					{{favoriteColor}}
+				</div>
+				<div class="div-block">
+					Favorite shape:
+					<select data-ng-model="favoriteShape">
+						<option value="Circle">Circle</option>
+						<option value="Triangle">Triangle</option>
+						<option value="Square">Square</option>
+					</select>
+				</div>
+				<div class="div-block">
+					{{favoriteShape}}
+				</div>
+			</div>
+			<div id="top_centre_panel" data-ng-controller="repeater">
+				<table>
+					<thead class="header">
+						<tr>
+							<td>Id</td>
+							<td>Name</td>
+						</tr>
+					</thead>
+  				    <tbody>
+					   <tr data-ng-repeat="product in products" data-ng-class="{oddRow: $odd}">
+						<td>{{product.id}}</td>
+						<td>{{product.name}}</td>
+					   </tr>
+				    </tbody>
+				</table>
+			</div>
+			<div id="top_right_panel" data-ng-controller="user">
+				<div class="div-block">
+					Username: {{user.username}}
+				</div>
+				<div class="div-block">
+					Email: {{user.email}}
+				</div>
+			</div>
+		</div>
+    </body>
+</html>

@@ -1,0 +1,17 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="
+   http://www.springframework.org/schema/beans     
+   http://www.springframework.org/schema/beans/spring-beans.xsd">
+   
+   <import resource="classpath:dq-web-services-client-context.xml"/>
+   
+   <bean id="userFacade" class="ie.dq.web.facade.UserFacade">
+   		<property name="userService" ref="dqUserServiceClient"></property>
+   </bean>
+   
+   <bean id="securityFacade" class="ie.dq.web.facade.SecurityFacade">
+   		<property name="securityService" ref="dqSecurityServiceClient"></property>
+   </bean>
+   
+</beans>

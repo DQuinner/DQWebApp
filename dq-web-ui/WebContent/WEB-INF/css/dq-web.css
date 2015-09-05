@@ -1,0 +1,133 @@
+/* GLOBAL STYLES
+-------------------------------------------------- */
+/* Padding below the footer and lighter body text */
+
+body {
+  padding-bottom: 40px;
+  color: #cccccc; /* Color body text */
+  background-image: url(data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mPwuA0AAW4BJIqXfZkAAAAASUVORK5CYII=);
+  background-color: #3A3A3A;
+}
+form {
+  border: 2px solid #c6c7cc;
+  border-radius: 5px;
+  font: 14px/1.4 "Helvetica Neue", Helvetica, Arial, sans-serif;
+  height: auto;
+  width: 300px;
+  margin: 50 auto;
+}
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+input {
+  border-radius: 5px;
+  font: 14px/1.4 "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin: 0;
+}
+.dq-header {
+  height: 400px;
+  margin-bottom: 60px;
+  color: #cccccc; /* Color body text */
+  background-image: url(data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNI2qj/HwAE/QJCUH1z+QAAAABJRU5ErkJggg==);
+  background-color: #3A3A3A;
+}
+
+/* DQ CLASSES
+_______________________________________________________*/
+.centre-text-dq {
+	text-align:center;
+}
+
+.dq-orange-image{
+	color: #FFFFFF; /* Color body text */
+	background-image: url(data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN4X6H/HwAGhgKWeBD2HQAAAABJRU5ErkJggg==);
+	background-color: #3A3A3A;
+}
+
+.dq-green-image{
+	color: #FFFFFF; /* Color body text */
+	background-image: url(data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNI2qj/HwAE/QJCUH1z+QAAAABJRU5ErkJggg==);
+	background-color: #3A3A3A;
+}
+
+.dq-blue-image{
+	color: #FFFFFF; /* Color body text */
+	background-image: url(data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mOIL/7/HwAF1wLRg4pnYQAAAABJRU5ErkJggg==);
+	background-color: #3A3A3A;
+}
+
+.dq-purple-image{
+	color: #FFFFFF; /* Color body text */
+	background-image: url(data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mPo9//8HwAGEwLRhOMLQQAAAABJRU5ErkJggg==);
+	background-color: #3A3A3A;
+}
+
+.dq-dark-grey{
+	background-color:#484848
+}
+
+.dq-light-grey{
+	background-color:#454545;
+}
+
+.dq-light-purple{
+	background-color:#8F4FF3
+}
+
+.dq-light-blue{
+	background-color:#5F73FF
+}
+
+.dq-green{
+	background-color:#62B12F
+}
+
+/* DQ BUTTON
+_______________________________________________________*/
+.btn-dq {
+  color: #fff;
+  background-color: #341950;
+  border-color: #1E003D;
+}
+.btn-dq:hover,
+.btn-dq:focus,
+.btn-dq.focus,
+.btn-dq:active,
+.btn-dq.active,
+.open > .dropdown-toggle.btn-dq {
+  color: #fff;
+  background-color: #286090;
+  border-color: #204d74;
+}
+.btn-dq:active,
+.btn-dq.active,
+.open > .dropdown-toggle.btn-dq {
+  background-image: none;
+}
+.btn-dq.disabled,
+.btn-dq[disabled],
+fieldset[disabled] .btn-dq,
+.btn-dq.disabled:hover,
+.btn-dq[disabled]:hover,
+fieldset[disabled] .btn-dq:hover,
+.btn-dq.disabled:focus,
+.btn-dq[disabled]:focus,
+fieldset[disabled] .btn-dq:focus,
+.btn-dq.disabled.focus,
+.btn-dq[disabled].focus,
+fieldset[disabled] .btn-dq.focus,
+.btn-dq.disabled:active,
+.btn-dq[disabled]:active,
+fieldset[disabled] .btn-dq:active,
+.btn-dq.disabled.active,
+.btn-dq[disabled].active,
+fieldset[disabled] .btn-dq.active {
+  background-color: #337ab7;
+  border-color: #2e6da4;
+}
+.btn-dq .badge {
+  color: #337ab7;
+  background-color: #fff;
+}

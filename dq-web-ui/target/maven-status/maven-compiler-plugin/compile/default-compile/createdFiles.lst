@@ -1,0 +1,8 @@
+ie\dq\web\security\UserDetailsServiceImpl.class
+ie\dq\web\controller\LoginController.class
+ie\dq\web\security\UserRole.class
+ie\dq\web\controller\HomeController.class
+ie\dq\web\exception\UserFormException.class
+ie\dq\web\model\UserFormErrors.class
+ie\dq\web\controller\UserAdminController.class
+ie\dq\web\controller\MediaController.class

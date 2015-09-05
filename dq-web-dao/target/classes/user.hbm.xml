@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8'?>  
+<!DOCTYPE hibernate-mapping PUBLIC  
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">  
+  
+<hibernate-mapping>  
+<class name="ie.dq.dao.model.User" table="web_user">  
+          <id name="user_id">  
+          <generator class="sequence"></generator>  
+          </id>  
+          <property name="username"></property>  
+          <property name="password"></property>
+          <property name="email"></property>  
+          <property name="forename"></property>
+		  <property name="surname"></property>  
+</class>
+
+<class name="ie.dq.dao.model.UserRole" table="web_user_roles">  
+          <id name="user_role_id">  
+          	<generator class="sequence"></generator>  
+          </id>
+          <property name="user_id"></property>
+          <property name="username"></property>    
+          <property name="role"></property>    
+</class> 
+            
+</hibernate-mapping>

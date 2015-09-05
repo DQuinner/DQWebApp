@@ -1,0 +1,43 @@
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:beans="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/security
+	http://www.springframework.org/schema/security/spring-security.xsd">
+	
+ 	<beans:import resource="classpath:dq-web-facade-context.xml"/>
+ 	
+ 	<beans:bean id="userDetailsService" class="ie.dq.web.security.UserDetailsServiceImpl">
+ 		<beans:property name="securityFacade" ref="securityFacade"></beans:property>
+ 	</beans:bean>
+ 	
+	<http auto-config="true">
+		<intercept-url pattern="/home/**" access="ROLE_USER" />
+		<intercept-url pattern="/media/**" access="ROLE_USER" />
+		<intercept-url pattern="/user-admin/**" access="ROLE_ADMIN" />
+		<form-login 
+		    login-page="/login" 
+		    default-target-url="/signIn" 
+			authentication-failure-url="/login?login_error=true"
+			always-use-default-target="true"/>
+		<logout logout-success-url="/login?logout=true" />
+		<!-- enable csrf protection -->
+		<csrf/>
+	</http>
+ 
+ 	<authentication-manager>
+		<authentication-provider user-service-ref="userDetailsService">
+		</authentication-provider>
+	</authentication-manager>
+ 
+	<!-- <authentication-manager>
+		<authentication-provider>
+		  <user-service>
+			<user name="dquinner" password="12345678" authorities="ROLE_USER" />
+			<user name="dquinner2" password="12345678" authorities="ROLE_USER, ROLE_ADMIN" />
+		  </user-service>
+		</authentication-provider>
+	</authentication-manager> -->
+ 
+</beans:beans>

@@ -1,0 +1,63 @@
+h1
+{
+	text-align: center;
+}
+
+html
+{
+    height: 100%;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid black;
+	width:400px;
+}
+
+#container
+{
+	width:100%;
+    text-align:left;
+}
+
+#top_left_panel
+{
+	float:left;
+    width:400px;
+	border: 1px solid black;
+	padding: 20px;
+	line-height: 50px;
+}
+
+#top_centre_panel
+{
+	border: 1px solid black;
+	padding: 20px;
+	width: 400px;
+	line-height: 50px;
+	float:left;
+}
+
+#top_right_panel
+{
+	float:left;
+    width:400px;
+	border: 1px solid black;
+	padding: 20px;
+	line-height: 50px;
+}
+
+.div-block
+{
+	display: block;
+	clear: both;
+}
+.oddRow {
+  background-color: lightblue;
+}
+.header {
+  background-color: #3366FF;
+}
