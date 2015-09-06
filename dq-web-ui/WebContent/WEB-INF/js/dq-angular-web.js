@@ -12,12 +12,12 @@ angular.module("dq-angular-web", [])
 			
 			var userFormData = {
 					"username":$scope.username,
-					"surname":$scope.surname,
 					"password":$scope.password,
+					"email":$scope.email,
 					"forename":$scope.firstname,
-					"email":$scope.email
+					"surname":$scope.surname
 				};
-				
+						
 			var response = $http.post("http://localhost:8081/dq-web-ui/user-admin/new", userFormData);
 			response.success(function(data, status, headers, config) {
 				$scope.username=null;
@@ -25,6 +25,7 @@ angular.module("dq-angular-web", [])
 				$scope.password=null;
 				$scope.firstname=null;
 				$scope.email=null;
+				$http.get("http://localhost:8081/dq-web-ui/user-admin");
 			});
 			response.error(function(data, status, headers, config) {
 				alert( "Exception details: " + JSON.stringify({data: data}));

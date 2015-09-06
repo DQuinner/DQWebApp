@@ -81,10 +81,18 @@ public class DQUserServiceImpl implements DQUserService {
 		
 		if(isValidAddUserRequest(userAdminRequest)){
 			
-			//ADD USER HERE
-			response.setUser(userAdminRequest.getUser());
-			response.setStatus("SUCCESS");
-			response.setMessage("USER_ADDED");
+			if("USER_ADDED".equalsIgnoreCase(userDao.addUser(mapUserUI(userAdminRequest.getUser())))){
+				//ADD USER HERE
+				response.setUser(userAdminRequest.getUser());
+				response.setStatus("SUCCESS");
+				response.setMessage("USER_ADDED");
+			}else{
+				response.setUser(userAdminRequest.getUser());
+				response.setStatus("ERROR");
+				response.setMessage("ERROR_ADDING_USER");
+			}
+			
+			
 		}else{
 			response.setUser(userAdminRequest.getUser());
 			response.setStatus("VALIDATION_ERROR");
@@ -150,6 +158,17 @@ public class DQUserServiceImpl implements DQUserService {
 			users.add(userUI);
 		}
 		return users;
+	}
+	
+	private User mapUserUI(UserUI userUI){
+		
+		User user = new User();
+		user.setUsername(userUI.getUsername());
+		user.setForename(userUI.getForename());
+		user.setSurname(userUI.getSurname());
+		user.setEmail(userUI.getEmail());
+		
+		return user;
 	}
 	
 	private List<UserUI> getMockedUsers(){

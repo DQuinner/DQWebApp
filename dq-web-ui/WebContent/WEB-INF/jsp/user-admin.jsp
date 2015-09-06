@@ -1,7 +1,9 @@
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 <html lang="en" data-ng-app="dq-angular-web">
   <head>
+  	
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,7 +11,7 @@
     <meta name="description" content="">
     <meta name="author" content="DQ Web User Admin">
     <link rel="icon" href="">
-
+	
     <title>DQ Web Home User Admin</title>
 
     <!-- Bootstrap core CSS -->
@@ -148,7 +150,7 @@
 					</div>
 					<div class="form-group">
 					  <label for="firstname">Firstname:</label>
-					  <input type="text" class="form-control" id="forename" data-ng-model="forename">
+					  <input type="text" class="form-control" id="firstname" data-ng-model="firstname">
 					</div>
 					<div class="form-group">
 					  <label for="surname">Surname:</label>

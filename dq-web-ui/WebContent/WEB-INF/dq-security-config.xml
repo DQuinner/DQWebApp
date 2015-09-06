@@ -23,13 +23,17 @@
 			always-use-default-target="true"/>
 		<logout logout-success-url="/login?logout=true" />
 		<!-- enable csrf protection -->
-		<csrf/>
+		<csrf token-repository-ref="csrfTokenRepository" /> 
 	</http>
  
  	<authentication-manager>
 		<authentication-provider user-service-ref="userDetailsService">
 		</authentication-provider>
 	</authentication-manager>
+	
+	<beans:bean id="csrfTokenRepository" class="org.springframework.security.web.csrf.HttpSessionCsrfTokenRepository">
+    	<beans:property name="headerName" value="X-XSRF-TOKEN" />
+ 	</beans:bean>
  
 	<!-- <authentication-manager>
 		<authentication-provider>

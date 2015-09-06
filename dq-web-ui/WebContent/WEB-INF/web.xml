@@ -40,4 +40,14 @@
      <url-pattern>/*</url-pattern>
    </filter-mapping>
    
+   <filter>
+    <filter-name>csrfFilter</filter-name>
+    <filter-class>ie.dq.web.security.CsrfFilter</filter-class>
+  </filter>
+
+  <filter-mapping>
+     <filter-name>csrfFilter</filter-name>
+     <url-pattern>/*</url-pattern>
+   </filter-mapping>
+   
 </web-app>
