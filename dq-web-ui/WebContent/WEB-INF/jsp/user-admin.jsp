@@ -158,7 +158,7 @@
 					</div>
 					<div class="modal-footer dq-light-grey centre-text-dq">
 						<input type="submit" id="submit" value="Register" class="btn btn-dq"/>
-				  		<button id="btnCloseAddUserModal" type="button" class="btn btn-dq" data-dismiss="modal">Close</button>
+				  		<button id="btnCloseAddUserModal" type="button" class="btn btn-dq" data-dismiss="modal" data-ng-model="btnCloseAddUserModal">Close</button>
 				  		<!-- <input type="button" class="btn btn-dq" id="btnAddUserModal" value="Register" onclick="doAjaxPost()"/> -->
 				  		<!-- <input type="button" class="btn btn-dq" data-dismiss="modal" value="Close"/> -->
 				  		<hr>

@@ -25,7 +25,7 @@ angular.module("dq-angular-web", [])
 				$scope.password=null;
 				$scope.firstname=null;
 				$scope.email=null;
-				$http.get("http://localhost:8081/dq-web-ui/user-admin");
+			
 			});
 			response.error(function(data, status, headers, config) {
 				alert( "Exception details: " + JSON.stringify({data: data}));
