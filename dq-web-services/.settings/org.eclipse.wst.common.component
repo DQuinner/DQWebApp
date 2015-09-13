@@ -4,9 +4,21 @@
         <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
+<<<<<<< HEAD
         <dependent-module archiveName="dq-web-common-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/dq-web-common/dq-web-common">
             <dependency-type>uses</dependency-type>
         </dependent-module>
+=======
+        <dependent-module archiveName="dq-web-services-api-0.0.2-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/dq-web-services-api/dq-web-services-api">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="dq-web-common-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/dq-web-common/dq-web-common">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="dq-web-dao-0.0.5-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/dq-web-dao/dq-web-dao">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+>>>>>>> spring4-upgrade
         <property name="context-root" value="dq-web-services"/>
         <property name="java-output-path" value="/dq-web-services/target/classes"/>
     </wb-module>
