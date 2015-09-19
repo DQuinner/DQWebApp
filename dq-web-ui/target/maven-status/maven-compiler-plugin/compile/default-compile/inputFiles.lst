@@ -5,5 +5,7 @@ C:\Development\GIT_Code\DQWebApp_v6\dq-web-ui\src\ie\dq\web\security\UserDetails
 C:\Development\GIT_Code\DQWebApp_v6\dq-web-ui\src\ie\dq\web\security\CsrfFilter.java
 C:\Development\GIT_Code\DQWebApp_v6\dq-web-ui\src\ie\dq\web\security\UserRole.java
 C:\Development\GIT_Code\DQWebApp_v6\dq-web-ui\src\ie\dq\web\controller\MediaController.java
+C:\Development\GIT_Code\DQWebApp_v6\dq-web-ui\src\ie\dq\web\MvcConfig.java
 C:\Development\GIT_Code\DQWebApp_v6\dq-web-ui\src\ie\dq\web\controller\LoginController.java
 C:\Development\GIT_Code\DQWebApp_v6\dq-web-ui\src\ie\dq\web\controller\UserAdminController.java
+C:\Development\GIT_Code\DQWebApp_v6\dq-web-ui\src\ie\dq\web\SecurityConfig.java
