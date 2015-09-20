@@ -5,13 +5,16 @@ import ie.dq.web.security.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.ImportResource;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
 @Configuration
 @EnableWebSecurity
+@ImportResource("classpath:dq-web-facade-context.xml")
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	@Autowired
@@ -23,23 +26,58 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	}
 	
 	@Override
+    public void configure(WebSecurity web) throws Exception {
+        web.ignoring().antMatchers("/css/**");
+        web.ignoring().antMatchers("/js/**");
+        web.ignoring().antMatchers("/image/**");
+        web.ignoring().antMatchers("/fonts/**");
+    }
+	
+	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 
-	  http.authorizeRequests()
+		http
+        .authorizeRequests()
+            .antMatchers("/home/**").hasRole("USER")
+            .antMatchers("/media/users/**").hasRole("USER")
+            .antMatchers("/user-admin/**").hasRole("ADMIN")
+            .anyRequest().authenticated()
+        .and()
+        	.formLogin()
+            .loginPage("/login")
+            .loginProcessingUrl("/j_spring_security_check" )	
+            .defaultSuccessUrl("/signIn")
+            .failureUrl("/login?login_error=true")
+            .permitAll()
+        .and()
+            .httpBasic()
+        .and()
+	  		.logout().logoutSuccessUrl("/login?logout=true")
+	  		.deleteCookies("JSESSIONID")
+	  		.invalidateHttpSession(true)
+	  		.permitAll()
+        .and()
+        	.csrf().disable();
+		
+	  /*http.authorizeRequests()
 		.antMatchers("/home/**").access("hasRole('ROLE_USER')")
 		.antMatchers("/media/**").access("hasRole('ROLE_USER')")
 		.antMatchers("/user-admin/**").access("hasRole('ROLE_ADMIN')")
+		//.anyRequest().authenticated()
 		.and()
-			.formLogin().loginPage("/login").failureUrl("/login?login_error=true")
+			.formLogin().loginPage("/login").permitAll()
+			.failureUrl("/login?login_error=true")
 			.loginProcessingUrl("/j_spring_security_check")
-		    .usernameParameter("username").passwordParameter("password")
+		    .usernameParameter("j_username").passwordParameter("j_password")
+		.and()
+		    .httpBasic()
 	  	.and()
 	  		.logout().logoutSuccessUrl("/login?logout=true")
 	  		.deleteCookies("JSESSIONID")
 	  		.invalidateHttpSession(true)
+	  		.permitAll()
         .and()
-        	.csrf().disable();
-	  
+        	.csrf().disable();*/
 	}
 	
 	@Bean

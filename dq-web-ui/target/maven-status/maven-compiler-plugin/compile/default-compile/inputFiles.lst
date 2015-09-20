@@ -1,11 +1,14 @@
 C:\Development\GIT_Code\DQWebApp_v6\dq-web-ui\src\ie\dq\web\controller\HomeController.java
-C:\Development\GIT_Code\DQWebApp_v6\dq-web-ui\src\ie\dq\web\exception\UserFormException.java
-C:\Development\GIT_Code\DQWebApp_v6\dq-web-ui\src\ie\dq\web\model\UserFormErrors.java
 C:\Development\GIT_Code\DQWebApp_v6\dq-web-ui\src\ie\dq\web\security\UserDetailsServiceImpl.java
+C:\Development\GIT_Code\DQWebApp_v6\dq-web-ui\src\ie\dq\web\model\UserFormErrors.java
+C:\Development\GIT_Code\DQWebApp_v6\dq-web-ui\src\ie\dq\web\exception\UserFormException.java
+C:\Development\GIT_Code\DQWebApp_v6\dq-web-ui\src\ie\dq\web\SpringConfigInitializer.java
 C:\Development\GIT_Code\DQWebApp_v6\dq-web-ui\src\ie\dq\web\security\CsrfFilter.java
 C:\Development\GIT_Code\DQWebApp_v6\dq-web-ui\src\ie\dq\web\security\UserRole.java
-C:\Development\GIT_Code\DQWebApp_v6\dq-web-ui\src\ie\dq\web\controller\MediaController.java
 C:\Development\GIT_Code\DQWebApp_v6\dq-web-ui\src\ie\dq\web\MvcConfig.java
+C:\Development\GIT_Code\DQWebApp_v6\dq-web-ui\src\ie\dq\web\controller\MediaController.java
 C:\Development\GIT_Code\DQWebApp_v6\dq-web-ui\src\ie\dq\web\controller\LoginController.java
 C:\Development\GIT_Code\DQWebApp_v6\dq-web-ui\src\ie\dq\web\controller\UserAdminController.java
 C:\Development\GIT_Code\DQWebApp_v6\dq-web-ui\src\ie\dq\web\SecurityConfig.java
+C:\Development\GIT_Code\DQWebApp_v6\dq-web-ui\src\ie\dq\web\SpringSecurityInitializer.java
+C:\Development\GIT_Code\DQWebApp_v6\dq-web-ui\src\ie\dq\web\AppConfig.java

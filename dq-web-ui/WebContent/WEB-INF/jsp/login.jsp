@@ -67,7 +67,8 @@
                   </ul>
                 </li>
               </ul>
-            <form:form method="POST" action="dq-web-ui/j_spring_security_check" class="navbar-form navbar-right" >
+              <c:url value="/j_spring_security_check" var="loginUrl"/>
+            <form:form method="POST" action="${loginUrl}" class="navbar-form navbar-right" >
               <c:if test="${!empty param.login_error}">
 				<div class="form-group" style="color: red;"> Invalid username or password    </div>
 			  </c:if>
@@ -75,11 +76,12 @@
 				<div class="form-group" style="color: red;"> Logged out successfully    </div>
 			  </c:if>
               <div class="form-group">
-                <input type="text" placeholder="Username" class="form-control" id="j_username" name="j_username">
+                <input type="text" placeholder="Username" class="form-control" id="username" name="username">
               </div>
               <div class="form-group">
-                <input type="password" placeholder="Password" class="form-control" id="j_password" name="j_password">
+                <input type="password" placeholder="Password" class="form-control" id="password" name="password">
               </div>
+               <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 			  <input type="submit" name="submit" class="btn btn-success" value="Sign in">
 			  <a class="btn btn-dq" data-toggle="modal" data-target="#add-user-modal">Register</a>
             </form:form>

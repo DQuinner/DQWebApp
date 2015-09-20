@@ -50,14 +50,14 @@
 			<span class="icon-bar"></span>
 		  </button>
 		  <p class="navbar-text">
-			<a class="navbar-link" href="dq-web-ui/j_spring_security_logout">Logout</a>
+			<a class="navbar-link" href="<c:url value="/j_spring_security_logout"/>">Logout</a>
 		  </p>  
 		</div>
 		<div id="navbar" class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
 			    <li><a class="active">Home</a></li>
 				<li><a href="/dq-web-ui/media">Media</a></li>
-				<security:authorize ifAllGranted="ROLE_ADMIN">
+				<security:authorize access="hasRole('ROLE_ADMIN')">
 					<li><a href="/dq-web-ui/user-admin">Admin</a></li>
 				</security:authorize>
                 <li><a data-toggle="modal" data-target="#about-modal" role="button">About</a></li>
@@ -111,7 +111,7 @@
 		  <p>Play with uploading</p>						
           <p><a class="btn btn-dq" href="/dq-web-ui/media" role="button">View Media &raquo;</a></p>
         </div>
-        <security:authorize ifAllGranted="ROLE_ADMIN">
+        <security:authorize access="hasRole('ROLE_ADMIN')">
 	        <div class="col-md-4">
 	          <h2>User Admin</h2>
 	          <p>User Administration Area</p>

@@ -3,7 +3,6 @@ package ie.dq.web;
 import java.util.Properties;
 
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.ImportResource;
 import org.springframework.web.servlet.ViewResolver;
@@ -15,9 +14,8 @@ import org.springframework.web.servlet.handler.SimpleMappingExceptionResolver;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @Configuration
-@ImportResource("classpath:dq-web-facade-context.xml")
-@ComponentScan("ie.dq.*")
 @EnableWebMvc
+@ImportResource("classpath:dq-web-facade-context.xml")
 public class MvcConfig extends WebMvcConfigurerAdapter {
 
 	 @Override
@@ -58,5 +56,5 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
 		er.setExceptionMappings(mappings);
 		return er;
 	}
-	
+		
 }

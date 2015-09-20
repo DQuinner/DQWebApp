@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.handler.SimpleMappingExceptionResolver;
 
 @Controller
 @SessionAttributes("loggedOnUser") //only stays in session until conversation ends!
@@ -38,7 +37,7 @@ public class LoginController {
 		return new ModelAndView("login", "command", new UserUI());
 	}
 	
-	@RequestMapping(value = "/signIn", method = RequestMethod.POST)
+	@RequestMapping(value = "/signIn", method = RequestMethod.GET)
 	public ModelAndView signIn(Authentication authentication) {
 			
 		User user = (User) authentication.getPrincipal();

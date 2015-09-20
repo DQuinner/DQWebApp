@@ -61,7 +61,7 @@
 				  <ul class="nav navbar-nav">
 					<li><a href="/dq-web-ui/home">Home</a></li>
 					<li><a>Media</a></li>
-					<security:authorize ifAllGranted="ROLE_ADMIN">
+					<security:authorize access="hasRole('ROLE_ADMIN')">
 						<li><a href="/dq-web-ui/user-admin">Admin</a></li>
 					</security:authorize>
 					<li><a data-toggle="modal" data-target="#about-modal" role="button">About</a></li>
