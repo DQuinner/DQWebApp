@@ -35,7 +35,7 @@
     <nav class="navbar navbar-inverse navbar-fixed-top dq-dark-grey">
       <div class="container">
         <div class="navbar-header pull-left">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" data-aria-expanded="false" data-aria-controls="navbar">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -50,7 +50,8 @@
 			<span class="icon-bar"></span>
 		  </button>
 		  <p class="navbar-text">
-			<a class="navbar-link" href="<c:url value="/j_spring_security_logout"/>">Logout</a>
+		  	 <c:url value="/logout" var="logoutUrl"/>
+			<a class="navbar-link" href="${logoutUrl}">Logout</a>
 		  </p>  
 		</div>
 		<div id="navbar" class="navbar-collapse collapse">
@@ -60,10 +61,10 @@
 				<security:authorize access="hasRole('ROLE_ADMIN')">
 					<li><a href="/dq-web-ui/user-admin">Admin</a></li>
 				</security:authorize>
-                <li><a data-toggle="modal" data-target="#about-modal" role="button">About</a></li>
+                <li><a data-toggle="modal" data-target="#about-modal" data-role="button">About</a></li>
                 <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Links<span class="caret"></span></a>
-                  <ul class="dropdown-menu" role="menu">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-role="button" data-aria-expanded="false">Links<span class="caret"></span></a>
+                  <ul class="dropdown-menu" data-role="menu">
                     <li class="dropdown-header">Frameworks</li>
 					<li><a href="http://projects.spring.io/spring-framework/">Spring</a></li>
                     <li><a href="http://getbootstrap.com/">Bootstrap</a></li>
@@ -86,7 +87,7 @@
         <h1>Welcome to DQ Web</h1>
         <p>Try to get this banner to change colours and create modal windows with CSS and JQuery</p>
 		<p></p>
-        <p><a class="btn btn-lg btn-dq" data-toggle="modal" data-target="#about-modal" role="button">Learn more &raquo;</a></p>
+        <p><a class="btn btn-lg btn-dq" data-toggle="modal" data-target="#about-modal" data-role="button">Learn more &raquo;</a></p>
       </div>
     </div>
 
@@ -100,7 +101,7 @@
 		  <p>Firstname: ${loggedOnUser.forename}</p>
 		  <p>Surname: ${loggedOnUser.surname}</p>
           <p>Last Login Time: 05/06/2015 14:24</p>
-          <p><a class="btn btn-dq" data-toggle="modal" data-target="#edit-user-modal" role="button">Edit Details &raquo;</a></p>
+          <p><a class="btn btn-dq" data-toggle="modal" data-target="#edit-user-modal" data-role="button">Edit Details &raquo;</a></p>
         </div>
 		<div class="col-md-4">
           <h2>Media</h2>
@@ -109,7 +110,7 @@
 		  <p>Play with you tube videos</p>
 		  <p>Play with some animations</p>
 		  <p>Play with uploading</p>						
-          <p><a class="btn btn-dq" href="/dq-web-ui/media" role="button">View Media &raquo;</a></p>
+          <p><a class="btn btn-dq" href="/dq-web-ui/media" data-role="button">View Media &raquo;</a></p>
         </div>
         <security:authorize access="hasRole('ROLE_ADMIN')">
 	        <div class="col-md-4">
@@ -119,7 +120,7 @@
 			  <p>Play with spring security roles</p>
 			  <p>Find a template for this page</p>
 	          <p>Play with JQuery and AJAX</p>
-	          <p><a class="btn btn-dq" href="/dq-web-ui/user-admin" role="button">View details &raquo;</a></p>
+	          <p><a class="btn btn-dq" href="/dq-web-ui/user-admin" data-role="button">View details &raquo;</a></p>
 	        </div>
         </security:authorize>
       </div>
@@ -133,7 +134,7 @@
     </div> <!-- /container -->
 
 	<!-- About Modal -->
-	<div class="modal fade" id="about-modal" role="dialog">
+	<div class="modal fade" id="about-modal" data-role="dialog">
 		<div class="modal-dialog centre-text-dq">
 			<!-- Modal content-->
 			<div class="modal-content">
@@ -158,7 +159,7 @@
 	</div>
 	
 	<!-- Edit User Modal -->
-	<div class="modal fade" id="edit-user-modal" role="dialog">
+	<div class="modal fade" id="edit-user-modal" data-role="dialog">
 		<div class="modal-dialog">
 			<!-- Modal content-->
 			<div class="modal-content">

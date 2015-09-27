@@ -52,32 +52,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         .and()
             .httpBasic()
         .and()
-	  		.logout().logoutSuccessUrl("/login?logout=true")
+        	.logout()
+        	.logoutUrl("/logout")
+	  		.logoutSuccessUrl("/login?logout=true")
 	  		.deleteCookies("JSESSIONID")
 	  		.invalidateHttpSession(true)
 	  		.permitAll()
+	  	.and()
+	  		.exceptionHandling().accessDeniedPage("/login?denied=true")
         .and()
         	.csrf().disable();
-		
-	  /*http.authorizeRequests()
-		.antMatchers("/home/**").access("hasRole('ROLE_USER')")
-		.antMatchers("/media/**").access("hasRole('ROLE_USER')")
-		.antMatchers("/user-admin/**").access("hasRole('ROLE_ADMIN')")
-		//.anyRequest().authenticated()
-		.and()
-			.formLogin().loginPage("/login").permitAll()
-			.failureUrl("/login?login_error=true")
-			.loginProcessingUrl("/j_spring_security_check")
-		    .usernameParameter("j_username").passwordParameter("j_password")
-		.and()
-		    .httpBasic()
-	  	.and()
-	  		.logout().logoutSuccessUrl("/login?logout=true")
-	  		.deleteCookies("JSESSIONID")
-	  		.invalidateHttpSession(true)
-	  		.permitAll()
-        .and()
-        	.csrf().disable();*/
 	}
 	
 	@Bean
