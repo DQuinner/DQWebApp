@@ -6,12 +6,20 @@
    
    <import resource="classpath:dq-web-services-client-context.xml"/>
    
-   <bean id="userFacade" class="ie.dq.web.facade.UserFacade">
-   		<property name="userService" ref="dqUserServiceClient"></property>
-   </bean>
+   <beans profile="backend">
+   	  	<bean id="userFacade" class="ie.dq.web.facade.impl.UserFacadeImpl">
+   	   		<property name="userService" ref="dqUserServiceClient"></property>
+   	  	</bean>
+   		<bean id="securityFacade" class="ie.dq.web.facade.impl.SecurityFacadeImpl">
+   			<property name="securityService" ref="dqSecurityServiceClient"></property>
+   		</bean>
+   </beans> 
    
-   <bean id="securityFacade" class="ie.dq.web.facade.SecurityFacade">
-   		<property name="securityService" ref="dqSecurityServiceClient"></property>
-   </bean>
+   <beans profile="stub">
+   		<bean id="userFacade" class="ie.dq.web.facade.stub.UserFacadeStub">
+   		</bean>
+   		<bean id="securityFacade" class="ie.dq.web.facade.stub.SecurityFacadeStub">
+   		</bean>
+   </beans>
    
 </beans>

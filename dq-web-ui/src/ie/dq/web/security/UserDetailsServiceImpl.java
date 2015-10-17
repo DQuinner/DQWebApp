@@ -3,21 +3,19 @@ package ie.dq.web.security;
 import java.util.LinkedList;
 import java.util.List;
 
-import ie.dq.web.facade.SecurityFacade;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
+import ie.dq.web.facade.SecurityFacade;
+
 public class UserDetailsServiceImpl implements UserDetailsService {
 
+	@Autowired
 	private SecurityFacade securityFacade;
 	
-	public void setSecurityFacade(SecurityFacade securityFacade) {
-		this.securityFacade = securityFacade;
-	}
-
 	@Override
 	public UserDetails loadUserByUsername(String username)
 			throws UsernameNotFoundException {

@@ -41,7 +41,7 @@
 		<nav class="navbar navbar-inverse navbar-fixed-top">
          <div class="container">
           <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" data-aria-expanded="false" data-aria-controls="navbar">
              <span class="sr-only">Toggle navigation</span>
              <span class="icon-bar"></span>
              <span class="icon-bar"></span>
@@ -53,8 +53,8 @@
               <ul class="nav navbar-nav">
                 <li><a data-toggle="modal" data-target="#about-modal">About</a></li>
                 <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Links <span class="caret"></span></a>
-                  <ul class="dropdown-menu" role="menu">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-role="button" data-aria-expanded="false">Links <span class="caret"></span></a>
+                  <ul class="dropdown-menu" data-role="menu">
                     <li class="dropdown-header">Frameworks</li>
 					<li><a href="http://projects.spring.io/spring-framework/">Spring</a></li>
                     <li><a href="http://getbootstrap.com/">Bootstrap</a></li>
@@ -67,19 +67,24 @@
                   </ul>
                 </li>
               </ul>
-            <form:form method="POST" action="dq-web-ui/j_spring_security_check" class="navbar-form navbar-right" >
+              <c:url value="/j_spring_security_check" var="loginUrl"/>
+            <form:form method="POST" action="${loginUrl}" class="navbar-form navbar-right" >
               <c:if test="${!empty param.login_error}">
 				<div class="form-group" style="color: red;"> Invalid username or password    </div>
 			  </c:if>
 			  <c:if test="${!empty param.logout}">
 				<div class="form-group" style="color: red;"> Logged out successfully    </div>
 			  </c:if>
+			  <c:if test="${!empty param.denied}">
+				<div class="form-group" style="color: red;"> Please Login    </div>
+			  </c:if>
               <div class="form-group">
-                <input type="text" placeholder="Username" class="form-control" id="j_username" name="j_username">
+                <input type="text" placeholder="Username" class="form-control" id="username" name="username">
               </div>
               <div class="form-group">
-                <input type="password" placeholder="Password" class="form-control" id="j_password" name="j_password">
+                <input type="password" placeholder="Password" class="form-control" id="password" name="password">
               </div>
+               <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 			  <input type="submit" name="submit" class="btn btn-success" value="Sign in">
 			  <a class="btn btn-dq" data-toggle="modal" data-target="#add-user-modal">Register</a>
             </form:form>
@@ -98,14 +103,14 @@
         <li data-target="#myCarousel" data-slide-to="1"></li>
         <li data-target="#myCarousel" data-slide-to="2"></li>
       </ol>
-      <div class="carousel-inner" role="listbox">
+      <div class="carousel-inner" data-role="listbox">
         <div class="item active">
           <img class="first-slide" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mOIL/7/HwAF1wLRg4pnYQAAAABJRU5ErkJggg==" alt="First slide">
           <div class="container">
             <div class="carousel-caption">
               <h1>DQ Web</h1>
               <p>DQ Web is an application to learn and demo web technologies</p>
-              <p><a class="btn btn-lg btn-dq" data-toggle="modal" data-target="#add-user-modal" role="button">Sign up today</a></p>
+              <p><a class="btn btn-lg btn-dq" data-toggle="modal" data-target="#add-user-modal" data-role="button">Sign up today</a></p>
             </div>
           </div>
         </div>
@@ -115,7 +120,7 @@
             <div class="carousel-caption">
               <h1>Bootstrap Framework</h1>
               <p>DQ Web UI developed using Bootstrap Framework HTML CSS and Javascript</p>
-              <p><a class="btn btn-lg btn-dq" href="http://getbootstrap.com/" role="button">Learn more</a></p>
+              <p><a class="btn btn-lg btn-dq" href="http://getbootstrap.com/" data-role="button">Learn more</a></p>
             </div>
           </div>
         </div>
@@ -125,17 +130,17 @@
             <div class="carousel-caption">
               <h1>Spring Framework</h1>
               <p>DQ Web Application developed using Java EE Spring Framework</p>
-              <p><a class="btn btn-lg btn-dq" href="http://projects.spring.io/spring-framework/" role="button">Learn More</a></p>
+              <p><a class="btn btn-lg btn-dq" href="http://projects.spring.io/spring-framework/" data-role="button">Learn More</a></p>
             </div>
           </div>
         </div>
       </div>
-      <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <a class="left carousel-control" href="#myCarousel" data-role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" data-aria-hidden="true"></span>
         <span class="sr-only">Previous</span>
       </a>
-      <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <a class="right carousel-control" href="#myCarousel" data-role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" data-aria-hidden="true"></span>
         <span class="sr-only">Next</span>
       </a>
     </div><!-- /.carousel -->
@@ -173,7 +178,7 @@
     </div><!-- /.container -->
     
     <!-- About Modal -->
-	<div class="modal fade" id="about-modal" role="dialog">
+	<div class="modal fade" id="about-modal" data-role="dialog">
 		<div class="modal-dialog centre-text-dq">
 			<!-- Modal content-->
 			<div class="modal-content">
@@ -198,7 +203,7 @@
 	</div>
 	
 	<!-- Add User Modal -->
-	<div class="modal fade" id="add-user-modal" role="dialog">
+	<div class="modal fade" id="add-user-modal" data-role="dialog">
 		<div class="modal-dialog">
 			<!-- Modal content-->
 			<div class="modal-content">

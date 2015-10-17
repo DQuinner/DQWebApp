@@ -34,7 +34,6 @@ public class LoginController {
 	 */
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public ModelAndView login() {
-		
 		return new ModelAndView("login", "command", new UserUI());
 	}
 	

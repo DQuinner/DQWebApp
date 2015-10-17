@@ -1,4 +1,5 @@
 <%@taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -39,7 +40,7 @@
 		<nav class="navbar navbar-inverse navbar-fixed-top dq-dark-grey">
 		  <div class="container">
 			<div class="navbar-header pull-left">
-			  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+			  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" data-aria-expanded="false" data-aria-controls="navbar">
 				<span class="sr-only">Toggle navigation</span>
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
@@ -54,20 +55,21 @@
 				<span class="icon-bar"></span>
 			  </button>
 			  <p class="navbar-text">
-				<a class="navbar-link" href="/dq-web-ui/login">Logout</a>
-			  </p>  
+		  	 	<c:url value="/logout" var="logoutUrl"/>
+				<a class="navbar-link" href="${logoutUrl}">Logout</a>
+		  	  </p>  
 			</div>
 			<div id="navbar" class="navbar-collapse collapse">
 				  <ul class="nav navbar-nav">
 					<li><a href="/dq-web-ui/home">Home</a></li>
 					<li><a>Media</a></li>
-					<security:authorize ifAllGranted="ROLE_ADMIN">
+					<security:authorize access="hasRole('ROLE_ADMIN')">
 						<li><a href="/dq-web-ui/user-admin">Admin</a></li>
 					</security:authorize>
-					<li><a data-toggle="modal" data-target="#about-modal" role="button">About</a></li>
+					<li><a data-toggle="modal" data-target="#about-modal" data-role="button">About</a></li>
 					<li class="dropdown">
-					  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Links<span class="caret"></span></a>
-					  <ul class="dropdown-menu" role="menu">
+					  <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-role="button" data-aria-expanded="false">Links<span class="caret"></span></a>
+					  <ul class="dropdown-menu" data-role="menu">
 						<li class="dropdown-header">Frameworks</li>
 						<li><a href="http://projects.spring.io/spring-framework/">Spring</a></li>
 						<li><a href="http://getbootstrap.com/">Bootstrap</a></li>
@@ -101,7 +103,7 @@
 		<li data-target="#myCarousel" data-slide-to="6"></li>
 		<li data-target="#myCarousel" data-slide-to="7"></li>
       </ol>
-      <div class="carousel-inner" role="listbox">
+      <div class="carousel-inner" data-role="listbox">
         <div class="item active">
           <img src="image/salt-flat-sun.jpg" alt="First slide">
           <div class="container">
@@ -167,12 +169,12 @@
           </div>
         </div>
       </div>
-      <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <a class="left carousel-control" href="#myCarousel" data-role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" data-aria-hidden="true"></span>
         <span class="sr-only">Previous</span>
       </a>
-      <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <a class="right carousel-control" href="#myCarousel" data-role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" data-aria-hidden="true"></span>
         <span class="sr-only">Next</span>
       </a>
     </div><!-- /.carousel -->
@@ -214,7 +216,7 @@
     </div><!-- /.container -->
 	
 	<!-- About Modal -->
-	<div class="modal fade" id="about-modal" role="dialog">
+	<div class="modal fade" id="about-modal" data-role="dialog">
 		<div class="modal-dialog centre-text-dq">
 			<!-- Modal content-->
 			<div class="modal-content">
@@ -239,7 +241,7 @@
 	</div>
 	
 	<!-- Add User Modal -->
-	<div class="modal fade" id="add-user-modal" role="dialog">
+	<div class="modal fade" id="add-user-modal" data-role="dialog">
 		<div class="modal-dialog">
 			<!-- Modal content-->
 			<div class="modal-content">
@@ -280,7 +282,7 @@
 	</div>
 	
 	<!-- About Modal -->
-	<div class="modal fade" id="about-modal" role="dialog">
+	<div class="modal fade" id="about-modal" data-role="dialog">
 		<div class="modal-dialog centre-text-dq">
 			<!-- Modal content-->
 			<div class="modal-content">
