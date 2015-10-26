@@ -5,6 +5,9 @@ import java.util.List;
 
 import javax.jws.WebService;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import ie.dq.dao.UserDao;
 import ie.dq.dao.model.User;
 import ie.dq.web.common.model.UserUI;
@@ -14,15 +17,13 @@ import ie.dq.web.service.model.UserRequest;
 import ie.dq.web.service.model.UserDetailsResponse;
 import ie.dq.web.service.model.UsersResponse;
 
+@Service
 @WebService
 public class DQUserServiceImpl implements DQUserService {
 	
+	@Autowired
 	private UserDao userDao;
 	
-	public void setUserDao(UserDao userDao) {
-		this.userDao = userDao;
-	}
-
 	public UserDetailsResponse getUserDetails(String username){
 		
 		UserUI userUI = new UserUI();
@@ -36,7 +37,7 @@ public class DQUserServiceImpl implements DQUserService {
 			User user = userDao.getByUsername(username);
 			if(user!=null){
 				userUI.setUsername(user.getUsername());
-				userUI.setForename(user.getForename());
+				userUI.setForename(user.getFirstname());
 				userUI.setSurname(user.getSurname());
 				userUI.setEmail(user.getEmail());
 				response.setUserUI(userUI);
@@ -56,22 +57,11 @@ public class DQUserServiceImpl implements DQUserService {
 		List<UserUI> users;
 		
 		if(userRequest.isAllUsers()){
-			users = mapUsers(userDao.getUsers());
+			users = mapUsers(userDao.getAllUsers());
 			usersResponse.setUsers(users);
 			usersResponse.setUsersCount(users.size());
 			usersResponse.setStatus("SUCCESS");
-		}else{
-			if(isValidUserRequest(userRequest)){
-				users = getMockedUsers();
-				usersResponse.setUsers(users);
-				usersResponse.setUsersCount(users.size());
-				usersResponse.setStatus("SUCCESS");
-			}else{
-				usersResponse.setStatus("ERROR");
-				usersResponse.setErrorMsg("You must supply a username,email,firstname or lastname");
-			}
 		}
-		
 		return usersResponse;
 	}
 	
@@ -79,10 +69,8 @@ public class DQUserServiceImpl implements DQUserService {
 		
 		UserAdminResponse response = new UserAdminResponse();
 		
-		if(isValidAddUserRequest(userAdminRequest)){
-			
+		if(isValidAddUserRequest(userAdminRequest)){	
 			if("USER_ADDED".equalsIgnoreCase(userDao.addUser(mapUserUI(userAdminRequest.getUser())))){
-				//ADD USER HERE
 				response.setUser(userAdminRequest.getUser());
 				response.setStatus("SUCCESS");
 				response.setMessage("USER_ADDED");
@@ -91,16 +79,12 @@ public class DQUserServiceImpl implements DQUserService {
 				response.setStatus("ERROR");
 				response.setMessage("ERROR_ADDING_USER");
 			}
-			
-			
 		}else{
 			response.setUser(userAdminRequest.getUser());
 			response.setStatus("VALIDATION_ERROR");
 			response.setMessage("Invalid user details");
 		}
-		
 		return response;
-		
 	}
 	
 	private boolean isValidAddUserRequest(UserAdminRequest userAdminRequest){
@@ -152,7 +136,7 @@ public class DQUserServiceImpl implements DQUserService {
 		for(User dbUser : dbUsers){
 			userUI = new UserUI();
 			userUI.setUsername(dbUser.getUsername());
-			userUI.setForename(dbUser.getForename());
+			userUI.setForename(dbUser.getFirstname());
 			userUI.setSurname(dbUser.getSurname());
 			userUI.setEmail(dbUser.getEmail());
 			users.add(userUI);
@@ -164,35 +148,10 @@ public class DQUserServiceImpl implements DQUserService {
 		
 		User user = new User();
 		user.setUsername(userUI.getUsername());
-		user.setForename(userUI.getForename());
+		user.setFirstname(userUI.getForename());
 		user.setSurname(userUI.getSurname());
 		user.setEmail(userUI.getEmail());
 		
 		return user;
-	}
-	
-	private List<UserUI> getMockedUsers(){
-		List<UserUI> users = new LinkedList<UserUI>();
-		UserUI userUI = new UserUI();
-		
-		userUI.setUsername("mocker1");
-		userUI.setForename("Mocky");
-		userUI.setSurname("Mocked");
-		userUI.setEmail("mockuser1@mocked.com");
-		users.add(userUI);
-
-		userUI.setUsername("mocker2");
-		userUI.setForename("Mocky2");
-		userUI.setSurname("Mocked2");
-		userUI.setEmail("mockuser2@mocked.com");
-		users.add(userUI);
-
-		userUI.setUsername("mocker3");
-		userUI.setForename("Mocky3");
-		userUI.setSurname("Mocked3");
-		userUI.setEmail("mockuser3@mocked.com");
-		users.add(userUI);
-		
-		return users;
 	}
 }

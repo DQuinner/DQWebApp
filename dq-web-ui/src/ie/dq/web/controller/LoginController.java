@@ -25,16 +25,8 @@ public class LoginController {
 	
 	private UserUI loggedOnUser;
 	
-	/** 
-	 * Passed a blank User object in the ModelAndView object with name "command" 
-	 * because the spring framework expects an object with name "command" if you 
-	 * are using <form:form> tags in your JSP file. 
-	 * When login() method is called it returns login.jsp view.
-	 * @return
-	 */
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public ModelAndView login() {
-		
 		return new ModelAndView("login", "command", new UserUI());
 	}
 	

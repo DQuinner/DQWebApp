@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>ie.dq</groupId>
   <artifactId>dq-web-services</artifactId>
-  <version>0.0.2-SNAPSHOT</version>
+  <version>0.0.3-SNAPSHOT</version>
   <packaging>war</packaging>
   <name>dq-web-services</name>
 
@@ -43,7 +43,7 @@
   	<dependency>
   		<groupId>ie.dq</groupId>
   		<artifactId>dq-web-dao</artifactId>
-  		<version>0.0.5-SNAPSHOT</version>
+  		<version>0.0.6-SNAPSHOT</version>
   	</dependency>
   	
   	<dependency>

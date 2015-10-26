@@ -1,19 +1,40 @@
 package ie.dq.dao.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="web_user")
 public class User {
 
-	private int user_id;
+	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
+	
+	@Column(name = "username", unique=true, nullable = false)
 	private String username;
+	
+	@Column(name = "password", nullable = false)
 	private String password;
+	
+	@Column(name = "email", nullable = false)
 	private String email;
-	private String forename;
+	
+	@Column(name = "firstname", nullable = false)
+	private String firstname;
+	
+	@Column(name = "surname", nullable = false)
 	private String surname;
 	
-	public int getUser_id() {
-		return user_id;
+	public int getId() {
+		return id;
 	}
-	public void setUser_id(int user_id) {
-		this.user_id = user_id;
+	public void setId(int id) {
+		this.id = id;
 	}
 	public String getUsername() {
 		return username;
@@ -33,16 +54,16 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getForename() {
-		return forename;
+	public String getFirstname() {
+		return firstname;
 	}
-	public void setForename(String forename) {
-		this.forename = forename;
+	public void setFirstname(String firstname) {
+		this.firstname = firstname;
 	}
 	public String getSurname() {
 		return surname;
 	}
 	public void setSurname(String surname) {
 		this.surname = surname;
-	}	
+	}
 }

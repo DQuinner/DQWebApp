@@ -103,7 +103,7 @@
     </footer>
     
     <!-- About Modal -->
-	<div class="modal fade" id="about-modal" role="dialog">
+	<div class="modal fade" id="about-modal" data-role="dialog">
 		<div class="modal-dialog centre-text-dq">
 			<!-- Modal content-->
 			<div class="modal-content">
@@ -111,12 +111,12 @@
 				  <button type="button" class="close" data-dismiss="modal">&times;</button>
 				  <h4 class="modal-title">About DQ Web</h4>
 				</div>
-				<div class="modal-body dq-light-blue">
+				<div class="modal-body dq-green">
 				  <p>DQ Web App demos technologies such as</p>
-				  <p>Bootstrap HTML Javascript CSS</p>
+				  <p>Bootstrap AngularJS HTML CSS</p>
 				  <p>Spring Framework MVC Core Security</p>
-				  <p>Java EE Hibernate</p>
-				  <p>Tomcat Oracle</p>
+				  <p>JDBC JPA Hibernate</p>
+				  <p>Tomcat Oracle mySQL</p>
 				</div>
 				<div class="modal-footer dq-light-grey centre-text-dq">
 				  <button type="button" class="btn btn-dq" data-dismiss="modal">Close</button>

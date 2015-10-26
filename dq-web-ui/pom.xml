@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>ie.dq</groupId>
   <artifactId>dq-web-ui</artifactId>
-  <version>0.0.5-SNAPSHOT</version>
+  <version>0.0.6-SNAPSHOT</version>
   <packaging>war</packaging>
   <build>
     <sourceDirectory>src</sourceDirectory>
@@ -60,19 +60,19 @@
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-web</artifactId>
-			<version>3.2.0.RELEASE</version>
+			<version>4.0.0.RELEASE</version>
 		</dependency>
 		
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-taglibs</artifactId>
-			<version>3.2.0.RELEASE</version>
+			<version>4.0.0.RELEASE</version>
 		</dependency>
 		
 		<dependency>
         	<groupId>org.springframework.security</groupId>
         	<artifactId>spring-security-config</artifactId>
-        	<version>3.2.0.RELEASE</version>
+        	<version>4.0.0.RELEASE</version>
     	</dependency>
     	
 		<dependency>
@@ -84,7 +84,7 @@
 		<dependency>
 			<groupId>ie.dq</groupId>
 			<artifactId>dq-web-facade</artifactId>
-			<version>0.0.3-SNAPSHOT</version>
+			<version>0.0.5-SNAPSHOT</version>
 		</dependency>
     	
 	</dependencies>

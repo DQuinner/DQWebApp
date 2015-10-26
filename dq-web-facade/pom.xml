@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>ie.dq</groupId>
   <artifactId>dq-web-facade</artifactId>
-  <version>0.0.3-SNAPSHOT</version>
+  <version>0.0.5-SNAPSHOT</version>
   <name>dq-web-facade</name>
   
   <dependencies>
@@ -17,6 +17,25 @@
 		<artifactId>dq-web-common</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	  </dependency>
+	  
+	  <dependency>
+		<groupId>ie.dq</groupId>
+		<artifactId>dq-web-dao</artifactId>
+		<version>0.0.6-SNAPSHOT</version>
+	  </dependency>
+	  
+	  <!-- Testing -->
+      <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-test</artifactId>
+          <version>4.1.6.RELEASE</version>
+      </dependency>
+      <dependency>
+	  	  <groupId>junit</groupId>
+          <artifactId>junit</artifactId>
+          <version>4.12</version>
+          <scope>test</scope>
+      </dependency>
 	  
   </dependencies>
   

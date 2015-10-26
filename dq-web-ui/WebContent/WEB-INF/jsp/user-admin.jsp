@@ -40,7 +40,7 @@
     <nav class="navbar navbar-inverse navbar-fixed-top dq-dark-grey">
       <div class="container">
         <div class="navbar-header pull-left">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" data-aria-expanded="false" data-aria-controls="navbar">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -55,7 +55,8 @@
 			<span class="icon-bar"></span>
 		  </button>
 		  <p class="navbar-text">
-			<a class="navbar-link" href="/dq-web-ui/login">Logout</a>
+		  	<c:url value="/logout" var="logoutUrl"/>
+			<a class="navbar-link" href="${logoutUrl}">Logout</a>
 		  </p>  
 		</div>
 		<div id="navbar" class="navbar-collapse collapse">
@@ -63,10 +64,10 @@
 			    <li><a class="active" href="/dq-web-ui/home">Home</a></li>
 				<li><a href="/dq-web-ui/media">Media</a></li>
 				<li><a>Admin</a></li>
-                <li><a data-toggle="modal" data-target="#about-modal" role="button">About</a></li>
+                <li><a data-toggle="modal" data-target="#about-modal" data-role="button">About</a></li>
                 <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Links<span class="caret"></span></a>
-                  <ul class="dropdown-menu" role="menu">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-role="button" data-aria-expanded="false">Links<span class="caret"></span></a>
+                  <ul class="dropdown-menu" data-role="menu">
                     <li class="dropdown-header">Frameworks</li>
 					<li><a href="http://projects.spring.io/spring-framework/">Spring</a></li>
                     <li><a href="http://getbootstrap.com/">Bootstrap</a></li>
@@ -88,8 +89,8 @@
       <div class="container">
         <h1>DQ Web User Administration</h1>
         <p>Use this section to search and edit users with spring hibernate and oracle</p>
-		<button type="button" class="btn btn-lg btn-dq" data-toggle="modal" data-target="#add-user-modal" role="button">Add User</button>
-		<button type="button" class="btn btn-lg btn-dq" data-toggle="modal" data-target="#edit-user-modal" role="button">Edit User</button>
+		<button type="button" class="btn btn-lg btn-dq" data-toggle="modal" data-target="#add-user-modal" data-role="button">Add User</button>
+		<button type="button" class="btn btn-lg btn-dq" data-toggle="modal" data-target="#edit-user-modal" data-role="button">Edit User</button>
       </div>
     </div>
 
@@ -157,6 +158,7 @@
 					  <input type="text" class="form-control" id="surname" data-ng-model="surname">
 					</div>
 					<div class="modal-footer dq-light-grey centre-text-dq">
+						<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 						<input type="submit" id="submit" value="Register" class="btn btn-dq"/>
 				  		<button id="btnCloseAddUserModal" type="button" class="btn btn-dq" data-dismiss="modal" data-ng-model="btnCloseAddUserModal">Close</button>
 				  		<!-- <input type="button" class="btn btn-dq" id="btnAddUserModal" value="Register" onclick="doAjaxPost()"/> -->
@@ -171,7 +173,7 @@
 	</div>
 	
 	<!-- Edit User Modal -->
-	<div class="modal fade" id="edit-user-modal" role="dialog">
+	<div class="modal fade" id="edit-user-modal" data-role="dialog">
 		<div class="modal-dialog">
 			<!-- Modal content-->
 			<div class="modal-content">
@@ -212,7 +214,7 @@
 	</div>
 	
 	<!-- About Modal -->
-	<div class="modal fade" id="about-modal" role="dialog">
+	<div class="modal fade" id="about-modal" data-role="dialog">
 		<div class="modal-dialog centre-text-dq">
 			<!-- Modal content-->
 			<div class="modal-content">
@@ -220,12 +222,12 @@
 				  <button type="button" class="close" data-dismiss="modal">&times;</button>
 				  <h4 class="modal-title">About DQ Web</h4>
 				</div>
-				<div class="modal-body dq-light-blue">
+				<div class="modal-body dq-green">
 				  <p>DQ Web App demos technologies such as</p>
-				  <p>Bootstrap HTML Javascript CSS</p>
-				  <p>Spring Framework MVC Core</p>
-				  <p>Java EE Hibernate</p>
-				  <p>Tomcat Oracle</p>
+				  <p>Bootstrap AngularJS HTML CSS</p>
+				  <p>Spring Framework MVC Core Security</p>
+				  <p>JDBC JPA Hibernate</p>
+				  <p>Tomcat Oracle mySQL</p>
 				</div>
 				<div class="modal-footer dq-light-grey centre-text-dq">
 				  <button type="button" class="btn btn-dq" data-dismiss="modal">Close</button>
